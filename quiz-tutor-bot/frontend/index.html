@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Non-Profit Quiz & Tutor Bot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🎓 AI Quiz & Tutor Bot</h1>
+            <p class="tagline">Master Non-Profit Concepts with AI-Powered Learning</p>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+        <div class="container">
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-info">
+                        <h3 id="total-docs">0</h3>
+                        <p>Knowledge Base</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <h3 id="current-score">0%</h3>
+                        <p>Current Score</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <h3 id="questions-answered">0/0</h3>
+                        <p>Progress</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section (no chat panel here anymore) -->
+            <div class="content-grid">
+                <div style="grid-column: span 2; text-align: center; padding: 60px 20px;">
+                    <h2 style="color: white; font-size: 2rem; margin-bottom: 20px;">
+                        Welcome to AI Quiz & Tutor Bot! 🎓
+                    </h2>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 30px;">
+                        Click the chat button (💬) in the bottom-right corner to start your interactive quiz experience.
+                    </p>
+                    <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; max-width: 600px; margin: 0 auto;">
+                        <h3 style="color: white; margin-bottom: 15px;">How it works:</h3>
+                        <ul style="color: rgba(255,255,255,0.9); text-align: left; list-style: none; padding: 0;">
+                            <li style="padding: 10px 0;">✅ Choose a donor email topic</li>
+                            <li style="padding: 10px 0;">✅ Answer AI-generated quiz questions</li>
+                            <li style="padding: 10px 0;">✅ Get instant feedback and scores</li>
+                            <li style="padding: 10px 0;">✅ Learn about non-profit concepts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FLOATING Chat Panel (Outside main content) -->
+    <div id="chat-panel" class="panel chatbot-panel quiz-tutor-panel hidden">
+        <div class="panel-header">
+            <h2>🎓 AI Quiz Tutor</h2>
+            <button id="close-chat-btn" class="btn btn-secondary">Close</button>
+        </div>
+        <div class="chat-container">
+            <div id="chat-messages" class="chat-messages">
+                <div class="chat-message assistant">
+                    <p>👋 Welcome! Loading your quiz tutor...</p>
+                </div>
+            </div>
+            <div class="chat-suggestions">
+                <p>Ready to start?</p>
+                <div id="suggestions-container"></div>
+            </div>
+            <div class="chat-input-container">
+                <textarea id="chat-input" placeholder="Type your answer here..." rows="2"></textarea>
+                <button id="send-chat-btn" class="btn btn-chat">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <button id="chat-toggle-btn" class="chat-toggle-btn" title="Open Quiz Chat">
+        💬
+    </button>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

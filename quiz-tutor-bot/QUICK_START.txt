@@ -1,0 +1,120 @@
+╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║   🎓 AI NON-PROFIT QUIZ & TUTOR BOT - QUICK START 🎓    ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝
+
+📦 SETUP (First Time Only)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Create virtual environment:
+   python -m venv venv
+
+2. Activate it:
+   Linux/Mac:  source venv/bin/activate
+   Windows:    venv\Scripts\activate
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+4. Configure API key:
+   cp .env.example .env
+   # Edit .env and add: OPENAI_API_KEY=sk-your-key-here
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 RUN APPLICATION (Every Time)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Step 1: Activate virtual environment
+   source venv/bin/activate  (or venv\Scripts\activate on Windows)
+
+Step 2: Go to backend directory
+   cd backend
+
+Step 3: Start the server
+   python main.py
+
+Step 4: Open browser
+   http://localhost:8000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 FIRST TIME USAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Upload sample data:
+   python sample_test.py
+
+This will:
+✅ Upload 4 sample donor emails
+✅ Generate a quiz
+✅ Test the system
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 USING THE DASHBOARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Quiz Panel (Left):
+1. Click "Start Quiz"
+2. Choose questions and difficulty
+3. Answer questions
+4. Get instant AI feedback
+
+Chatbot Panel (Right):
+1. Type a question
+2. Get AI-powered answers
+3. Try suggested questions
+4. Clear chat anytime
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+README_V2.md            - Complete overview
+RUN_INSTRUCTIONS.md     - Detailed running guide
+NEW_FEATURES.md         - What's new in v2.0
+API_DOCUMENTATION.md    - API reference
+
+API Docs: http://localhost:8000/api/docs
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Problem: "Cannot connect"
+→ Make sure you ran: cd backend && python main.py
+
+Problem: "API key not found"
+→ Check .env file has: OPENAI_API_KEY=sk-...
+
+Problem: "No questions generated"
+→ Upload emails first: python sample_test.py
+
+Problem: "Module not found"
+→ Activate venv: source venv/bin/activate
+→ Install deps: pip install -r requirements.txt
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ QUICK COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Activate environment
+source venv/bin/activate
+
+# Start server
+cd backend && python main.py
+
+# Run tests
+python sample_test.py
+
+# Check health
+curl http://localhost:8000/api/v1/health
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+That's it! Happy learning! 🚀

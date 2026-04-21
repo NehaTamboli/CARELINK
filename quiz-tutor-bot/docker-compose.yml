@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  quiz-bot-api:
+    build: .
+    container_name: quiz-tutor-bot
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - DEBUG=True
+      - CHROMADB_PATH=/app/data/chromadb
+      - COLLECTION_NAME=donor_emails
+      - LLM_PROVIDER=openai
+      - MODEL_NAME=gpt-4o-mini
+      - TEMPERATURE=0.7
+      - MAX_TOKENS=1500
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./src:/app/src
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  chromadb-data:
+    driver: local
