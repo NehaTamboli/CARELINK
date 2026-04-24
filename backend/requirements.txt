@@ -1,43 +1,21 @@
-# CareLink Backend Dependencies
-# AI-Powered Non-Profit Support Triage System
-
-# Web Framework
+# Core Backend
 fastapi==0.115.5
-uvicorn[standard]==0.34.0
+uvicorn==0.34.0
 pydantic==2.10.3
-pydantic-settings==2.7.0
+python-dotenv==1.0.1
 python-multipart==0.0.20
 
-# LLM Integration
+# API & Requests
+requests==2.32.3
+aiohttp==3.11.11
+
+# LLM (light usage only)
 openai==1.58.1
-langchain==0.3.13
-langchain-openai==0.2.14
-langchain-community==0.3.13
-
-# NLP and NER
-spacy==3.7.5
-# Download model: python -m spacy download en_core_web_sm
-
-# Vector Database for Quiz Knowledge Base
-chromadb
-sentence-transformers==3.3.1
 
 # Database
 supabase
 psycopg2-binary==2.9.10
 
 # Utilities
-python-dotenv==1.0.1
-requests==2.32.3
-aiohttp==3.11.11
-
-# Date/Time
 python-dateutil==2.9.0
-
-# Logging and Monitoring
 loguru==0.7.3
-
-# Testing (Optional)
-pytest==8.3.4
-pytest-asyncio==0.25.2
-httpx==0.28.1
