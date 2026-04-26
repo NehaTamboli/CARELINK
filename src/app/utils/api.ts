@@ -1,7 +1,7 @@
 import { projectId, publicAnonKey } from '/utils/supabase/info';
 
 // Backend Python API URL - for AI analysis
-const BACKEND_API_URL = 'http://localhost:8000/api';
+const BACKEND_API_URL = "/api";
 // Supabase API URL - for message storage
 const API_URL = `https://${projectId}.supabase.co/functions/v1/make-server-6ca6d710`;
 

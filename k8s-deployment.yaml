@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carelink-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: carelink
+  template:
+    metadata:
+      labels:
+        app: carelink
+    spec:
+      containers:
+      - name: carelink-container
+        image: carelink-app
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
