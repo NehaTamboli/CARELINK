@@ -1,34 +1,52 @@
+# ---------- FRONTEND BUILD ----------
+FROM node:18 AS frontend
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+
+# ---------- BACKEND ----------
 FROM python:3.11
 
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential curl git && rm -rf /var/lib/apt/lists/*
+# Install nginx
+RUN apt-get update && apt-get install -y nginx curl git build-essential
 
-# Upgrade pip
+# Install Python dependencies
+COPY backend/requirements.txt .
 RUN pip install --upgrade pip
-
-# Copy requirements correctly
-COPY backend/requirements.txt ./requirements.txt
-
-# Install dependencies
-RUN pip install --no-cache-dir \
-    --timeout 1000 \
-    --retries 10 \
-    --trusted-host pypi.org \
-    --trusted-host files.pythonhosted.org \
-    -r requirements.txt
-
-# Install spacy explicitly
+RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install spacy==3.7.5
-
-# Download spacy model
 RUN python -m spacy download en_core_web_sm
 
-# Copy full project
+# Copy project
 COPY . .
 
+# Copy frontend build
+COPY --from=frontend /app/dist /usr/share/nginx/html
+
+# Nginx config
+RUN rm /etc/nginx/sites-enabled/default
+
+RUN echo 'server { \
+    listen 80; \
+    server_name _; \
+    root /usr/share/nginx/html; \
+    index index.html; \
+    location / { \
+        try_files $uri /index.html; \
+    } \
+}' > /etc/nginx/sites-available/default
+
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+EXPOSE 80
 EXPOSE 8000
 
-CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD service nginx start && python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
