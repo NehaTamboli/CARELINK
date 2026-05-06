@@ -22,7 +22,7 @@ export const api = {
   // Get all messages
   async getMessages(): Promise<Message[]> {
     try {
-      const response = await fetch(`${BACKEND_API_URL}/messages`, {
+      const response = await fetch(`${API_URL}/messages`, {
         headers: {
           'Authorization': `Bearer ${publicAnonKey}`,
           'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export const api = {
     location?: string;
   }): Promise<Message | null> {
     try {
-      const response = await fetch(`${BACKEND_API_URL}/messages` , {
+      const response = await fetch(`${API_URL}/messages` , {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${publicAnonKey}`,
@@ -81,7 +81,7 @@ export const api = {
   // Update message
   async updateMessage(id: string, updates: Partial<Message>): Promise<Message | null> {
     try {
-      const response = await fetch(`${BACKEND_API_URL}/messages/${id}`, {
+      const response = await fetch(`${API_URL}/messages/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${publicAnonKey}`,
@@ -107,7 +107,7 @@ export const api = {
   // Delete message
   async deleteMessage(id: string): Promise<boolean> {
     try {
-      const response = await fetch(`${BACKEND_API_URL}/messages/${id}`, {
+      const response = await fetch(`${API_URL}/messages/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${publicAnonKey}`,
