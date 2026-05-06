@@ -2,7 +2,7 @@
 // CONFIGURATION
 // ============================================================================
 
-const API_BASE = 'http://localhost:8000/api/v1';
+const API_BASE = 'http://65.2.33.200/api/v1';
 const USER_ID = `student_${Date.now()}`;
 
 // Help topics for interactive guide
